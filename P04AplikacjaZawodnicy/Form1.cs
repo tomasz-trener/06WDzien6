@@ -60,7 +60,7 @@ namespace P04AplikacjaZawodnicy
             dtpData.Value = zaznaczony.DataUrodzenia;
         }
 
-        private void btnEdytuj_Click(object sender, EventArgs e)
+        private void btnEdytuj_Click(object sender, EventArgs e) 
         {
             ManagerZawodnikow mz = new ManagerZawodnikow();
             Zawodnik z = ZczytajZawodnika();
@@ -72,7 +72,11 @@ namespace P04AplikacjaZawodnicy
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
+            Zawodnik zaznaczony = (Zawodnik)lbDane.SelectedItem;
 
+            ManagerZawodnikow mz = new ManagerZawodnikow();
+            mz.Usun(zaznaczony.Id_zawodnika);
+            Odswiez();
         }
     }
 }
