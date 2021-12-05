@@ -23,7 +23,15 @@ namespace P03AplikacjaOkienkowa
 
             PolaczenieZBaza pzb = new PolaczenieZBaza(connString);
 
+            object[][] wynik = pzb.WykonajZapytanieSQL(txtSQL.Text);
 
+            dgvDane.Rows.Clear();
+            dgvDane.ColumnCount = wynik[0].Length;
+
+            for (int i = 0; i < wynik.Length; i++)
+            {
+                dgvDane.Rows.Add(wynik[i]);
+            }
 
         }
     }

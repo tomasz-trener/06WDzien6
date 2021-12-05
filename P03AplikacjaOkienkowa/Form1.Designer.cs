@@ -31,6 +31,7 @@ namespace P03AplikacjaOkienkowa
         {
             this.dgvDane = new System.Windows.Forms.DataGridView();
             this.btnWczytaj = new System.Windows.Forms.Button();
+            this.txtSQL = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDane)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,17 +53,26 @@ namespace P03AplikacjaOkienkowa
             this.btnWczytaj.UseVisualStyleBackColor = true;
             this.btnWczytaj.Click += new System.EventHandler(this.btnWczytaj_Click);
             // 
+            // txtSQL
+            // 
+            this.txtSQL.Location = new System.Drawing.Point(93, 17);
+            this.txtSQL.Name = "txtSQL";
+            this.txtSQL.Size = new System.Drawing.Size(649, 20);
+            this.txtSQL.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 587);
+            this.Controls.Add(this.txtSQL);
             this.Controls.Add(this.btnWczytaj);
             this.Controls.Add(this.dgvDane);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDane)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,6 +80,7 @@ namespace P03AplikacjaOkienkowa
 
         private System.Windows.Forms.DataGridView dgvDane;
         private System.Windows.Forms.Button btnWczytaj;
+        private System.Windows.Forms.TextBox txtSQL;
     }
 }
 
