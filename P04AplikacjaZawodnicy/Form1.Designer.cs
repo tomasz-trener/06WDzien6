@@ -214,7 +214,7 @@ namespace P04AplikacjaZawodnicy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 321);
+            this.ClientSize = new System.Drawing.Size(589, 321);
             this.Controls.Add(this.chbListKolumny);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnEdytuj);

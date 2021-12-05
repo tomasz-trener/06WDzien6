@@ -88,3 +88,10 @@ namespace P04AplikacjaZawodnicy
         }
     }
 }
+
+
+/* Form1 (UI) 
+ * ManagerZawodnikow (CRUD)
+ * PolaczenieZBaza
+ * Baza danych
+ */
