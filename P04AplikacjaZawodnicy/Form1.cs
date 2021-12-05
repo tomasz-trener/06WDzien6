@@ -43,5 +43,17 @@ namespace P04AplikacjaZawodnicy
             mz.Dodaj(z);
             Odswiez();
         }
+
+        private void lbDane_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Zawodnik zaznaczony = (Zawodnik)lbDane.SelectedItem;
+
+            txtImie.Text = zaznaczony.Imie;
+            txtNazwisko.Text = zaznaczony.Nazwisko;
+            txtKraj.Text = zaznaczony.Kraj;
+            txtWzrost.Text =Convert.ToString(zaznaczony.Wzrost);
+            txtWaga.Text = Convert.ToString(zaznaczony.Waga);
+            dtpData.Value = zaznaczony.DataUrodzenia;
+        }
     }
 }

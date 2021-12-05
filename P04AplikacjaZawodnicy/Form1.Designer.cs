@@ -44,6 +44,7 @@ namespace P04AplikacjaZawodnicy
             this.txtWzrost = new System.Windows.Forms.TextBox();
             this.btnZapisz = new System.Windows.Forms.Button();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.btnEdytuj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbDane
@@ -53,6 +54,7 @@ namespace P04AplikacjaZawodnicy
             this.lbDane.Name = "lbDane";
             this.lbDane.Size = new System.Drawing.Size(312, 264);
             this.lbDane.TabIndex = 0;
+            this.lbDane.SelectedIndexChanged += new System.EventHandler(this.lbDane_SelectedIndexChanged);
             // 
             // btnWczytaj
             // 
@@ -171,11 +173,21 @@ namespace P04AplikacjaZawodnicy
             this.dtpData.Size = new System.Drawing.Size(177, 20);
             this.dtpData.TabIndex = 15;
             // 
+            // btnEdytuj
+            // 
+            this.btnEdytuj.Location = new System.Drawing.Point(421, 204);
+            this.btnEdytuj.Name = "btnEdytuj";
+            this.btnEdytuj.Size = new System.Drawing.Size(75, 23);
+            this.btnEdytuj.TabIndex = 16;
+            this.btnEdytuj.Text = "Edytuj";
+            this.btnEdytuj.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 321);
+            this.Controls.Add(this.btnEdytuj);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.label6);
@@ -215,6 +227,7 @@ namespace P04AplikacjaZawodnicy
         private System.Windows.Forms.TextBox txtWzrost;
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.Button btnEdytuj;
     }
 }
 
