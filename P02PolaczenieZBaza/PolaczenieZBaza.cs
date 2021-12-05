@@ -5,59 +5,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P01PolaczenieZBaza
+namespace P02PolaczenieZBaza
 {
-    class Program
+    class PolaczenieZBaza
     {
-        static void Main(string[] args)
+
+        private string connString;
+
+        public PolaczenieZBaza(string connString)
+        {
+            this.connString = connString;
+        }
+
+
+        public object[][] WykonajZapytanieSQL(string sql)
         {
             SqlConnection connection; // do komumikacji z baza danych 
             SqlCommand command; // przechowywanie polecen SQL 
             SqlDataReader dataReader; // czytania odpowiedzi z bazy danych 
 
-            string connString = "Data Source=.;Initial Catalog=A_Zawodnicy;User ID=sa;Password=alx";
             connection = new SqlConnection(connString);
 
-            command = new SqlCommand("SELECT * FROM zawodnicy", connection);
+            command = new SqlCommand(sql, connection);
+
+            List<object[]> listaWierszy = new List<object[]>();
 
             try
             {
                 connection.Open();
                 dataReader = command.ExecuteReader(); // wysłanie polecenia sql do bazy
                                                       // dataReader jest uchwytem do wyniku 
-
-
                 while (dataReader.Read())
                 {
-                    string imieNazwisko = (string)dataReader.GetValue(2) + " " +
-                            (string)dataReader.GetValue(3);
-
-                    Console.WriteLine(imieNazwisko);
+                    object[] wiersz = new object[dataReader.FieldCount];
+                    for (int i = 0; i < dataReader.FieldCount; i++)
+                    {
+                        wiersz[i] = dataReader.GetValue(i);
+                    }
+                    listaWierszy.Add(wiersz);
                 }
             }
             catch (Exception ex)
             {
-              //  throw ex;
-              //  Console.WriteLine(ex.Message);
-                Console.WriteLine("błąd bazy danych");
+                  throw ex;
+                //  Console.WriteLine(ex.Message);
+                //Console.WriteLine("błąd bazy danych");
             }
             finally
             {
                 connection.Close();
             }
-
-            //dataReader.Read(); // czyta kolejny wierszy 
-            //string imie = (string)dataReader.GetValue(2);
-            //Console.WriteLine(imie);
-
-
-            //dataReader.Read();
-            //imie = (string)dataReader.GetValue(2);
-            //Console.WriteLine(imie);
-
-
-            Console.ReadKey();
-
+            return listaWierszy.ToArray();
         }
+
+
     }
 }
