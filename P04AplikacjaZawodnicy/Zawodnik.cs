@@ -10,14 +10,28 @@ namespace P04AplikacjaZawodnicy
     {
         public int Id_zawodnika;
         public int? Id_trenera; //dodanie ? powoduje, że typ jest nullable 
-        public string Imie;
+        public string Imie; // string jest domyślnie nullable ?
         public string Nazwisko;
         public string Kraj;
         public DateTime DataUrodzenia;
         public int Wzrost;
         public int Waga;
 
+
+
         public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
+
+        public string CalyRekord
+        {
+            get
+            {
+                return Id_zawodnika + " " + Id_trenera +  " " +
+                    Imie + " " + Nazwisko + " " +
+                    Kraj + " " + DataUrodzenia + " " +
+                    Wzrost + " " + Wzrost;
+
+            }
+        }
 
         public Zawodnik(string imie, string nazwisko)
         {

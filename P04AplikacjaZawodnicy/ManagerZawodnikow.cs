@@ -25,7 +25,17 @@ namespace P04AplikacjaZawodnicy
             {
                 Zawodnik z = new Zawodnik((string)wynik[i][2], (string)wynik[i][3]);
                 z.Id_zawodnika = (int)wynik[i][0];
-                z.Id_trenera = (int)wynik[i][1];
+
+                try
+                {
+                    z.Id_trenera = (int)wynik[i][1];
+                }
+                catch (Exception)
+                {
+
+                }
+                //z.Id_trenera = (int?)wynik[i][1];    (NULL w bazie danych <> NULL w C#)
+
                 z.Kraj = (string)wynik[i][4];
                 z.DataUrodzenia = (DateTime)wynik[i][5];
                 z.Wzrost = (int)wynik[i][6];

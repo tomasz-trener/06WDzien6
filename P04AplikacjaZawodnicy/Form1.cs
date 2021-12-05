@@ -23,7 +23,7 @@ namespace P04AplikacjaZawodnicy
             mz.Wczytaj();
 
             lbDane.DataSource = mz.Zawodnicy;
-            lbDane.DisplayMember = "ImieNazwisko";
+            lbDane.DisplayMember = "CalyRekord";
         }
     }
 }
