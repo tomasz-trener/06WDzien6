@@ -73,6 +73,8 @@ namespace P04AplikacjaZawodnicy
                    " waga = {5}" +
                    " where id_zawodnika = {6}",
                 z.Imie,z.Nazwisko,z.Kraj,z.DataUrodzenia,z.Wzrost,z.Waga,z.Id_zawodnika);
+          
+            pzb.WykonajZapytanieSQL(sql);
         }
     }
 }
