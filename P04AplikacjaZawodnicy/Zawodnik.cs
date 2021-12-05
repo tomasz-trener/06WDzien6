@@ -46,7 +46,7 @@ namespace P04AplikacjaZawodnicy
                 if (soc.Contains("DataUr"))
                     kolumny += DataUrodzenia.ToString("dd-MM-yyyy") + " ";
 
-                return kolumny;
+                return kolumny; 
 
             }
         }
