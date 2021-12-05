@@ -31,16 +31,20 @@ namespace P04AplikacjaZawodnicy
             Odswiez();
         }
 
-        private void btnZapisz_Click(object sender, EventArgs e)
+        private Zawodnik ZczytajZawodnika()
         {
             Zawodnik z = new Zawodnik(txtImie.Text, txtNazwisko.Text);
             z.Kraj = txtKraj.Text;
             z.DataUrodzenia = dtpData.Value;
             z.Wzrost = Convert.ToInt32(txtWzrost.Text);
             z.Waga = Convert.ToInt32(txtWaga.Text);
+            return z;
+        }
 
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {    
             ManagerZawodnikow mz = new ManagerZawodnikow();
-            mz.Dodaj(z);
+            mz.Dodaj(ZczytajZawodnika());
             Odswiez();
         }
 
@@ -54,6 +58,16 @@ namespace P04AplikacjaZawodnicy
             txtWzrost.Text =Convert.ToString(zaznaczony.Wzrost);
             txtWaga.Text = Convert.ToString(zaznaczony.Waga);
             dtpData.Value = zaznaczony.DataUrodzenia;
+        }
+
+        private void btnEdytuj_Click(object sender, EventArgs e)
+        {
+            ManagerZawodnikow mz = new ManagerZawodnikow();
+            Zawodnik z = ZczytajZawodnika();
+            Zawodnik zaznaczony = (Zawodnik)lbDane.SelectedItem;
+            z.Id_zawodnika = zaznaczony.Id_zawodnika;
+            mz.Edytuj(z);
+            Odswiez();
         }
     }
 }

@@ -181,6 +181,7 @@ namespace P04AplikacjaZawodnicy
             this.btnEdytuj.TabIndex = 16;
             this.btnEdytuj.Text = "Edytuj";
             this.btnEdytuj.UseVisualStyleBackColor = true;
+            this.btnEdytuj.Click += new System.EventHandler(this.btnEdytuj_Click);
             // 
             // Form1
             // 
