@@ -8,13 +8,13 @@ namespace P04AplikacjaZawodnicy
 {
     class ManagerZawodnikow
     {
+        string connString = "Data Source=.;Initial Catalog=A_Zawodnicy;User ID=sa;Password=alx";
 
         public Zawodnik[] Zawodnicy;
 
         public void Wczytaj()
         {
-            string connString = "Data Source=.;Initial Catalog=A_Zawodnicy;User ID=sa;Password=alx";
-
+          
             PolaczenieZBaza pzb = new PolaczenieZBaza(connString);
 
             object[][] wynik= pzb.WykonajZapytanieSQL("select * from zawodnicy");
@@ -26,15 +26,19 @@ namespace P04AplikacjaZawodnicy
                 Zawodnik z = new Zawodnik((string)wynik[i][2], (string)wynik[i][3]);
                 z.Id_zawodnika = (int)wynik[i][0];
 
-                try
-                {
-                    z.Id_trenera = (int)wynik[i][1];
-                }
-                catch (Exception)
-                {
 
-                }
-                //z.Id_trenera = (int?)wynik[i][1];    (NULL w bazie danych <> NULL w C#)
+                if(!(wynik[i][1] is DBNull))
+                    z.Id_trenera = (int)wynik[i][1];
+
+                //try
+                //{
+                //    z.Id_trenera = (int)wynik[i][1];
+                //}
+                //catch (Exception)
+                //{
+
+                //}
+                // z.Id_trenera = (int?)wynik[i][1]; (NULL w bazie danych<> NULL w C#)
 
                 z.Kraj = (string)wynik[i][4];
                 z.DataUrodzenia = (DateTime)wynik[i][5];
@@ -42,6 +46,17 @@ namespace P04AplikacjaZawodnicy
                 z.Waga = (int)wynik[i][7];
                 Zawodnicy[i] = z;
             }
+        }
+
+        public void Dodaj(Zawodnik z)
+        {
+            PolaczenieZBaza pzb = new PolaczenieZBaza(connString);
+
+            string sql = 
+                string.Format("insert into zawodnicy values(null, '{0}', '{1}', '{2}', '{3}', {4}, {5});",
+                z.Imie,z.Nazwisko,z.Kraj,z.DataUrodzenia,z.Wzrost,z.Waga);
+         
+            pzb.WykonajZapytanieSQL(sql);
         }
     }
 }

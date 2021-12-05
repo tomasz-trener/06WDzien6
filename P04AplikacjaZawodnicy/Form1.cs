@@ -17,13 +17,31 @@ namespace P04AplikacjaZawodnicy
             InitializeComponent();
         }
 
-        private void btnWczytaj_Click(object sender, EventArgs e)
+        private void Odswiez()
         {
             ManagerZawodnikow mz = new ManagerZawodnikow();
             mz.Wczytaj();
 
             lbDane.DataSource = mz.Zawodnicy;
             lbDane.DisplayMember = "CalyRekord";
+        }
+
+        private void btnWczytaj_Click(object sender, EventArgs e)
+        {
+            Odswiez();
+        }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            Zawodnik z = new Zawodnik(txtImie.Text, txtNazwisko.Text);
+            z.Kraj = txtKraj.Text;
+            z.DataUrodzenia = dtpData.Value;
+            z.Wzrost = Convert.ToInt32(txtWzrost.Text);
+            z.Waga = Convert.ToInt32(txtWaga.Text);
+
+            ManagerZawodnikow mz = new ManagerZawodnikow();
+            mz.Dodaj(z);
+            Odswiez();
         }
     }
 }
