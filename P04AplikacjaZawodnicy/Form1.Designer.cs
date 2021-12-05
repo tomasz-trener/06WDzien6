@@ -45,6 +45,7 @@ namespace P04AplikacjaZawodnicy
             this.btnZapisz = new System.Windows.Forms.Button();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnEdytuj = new System.Windows.Forms.Button();
+            this.btnUsun = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbDane
@@ -183,11 +184,22 @@ namespace P04AplikacjaZawodnicy
             this.btnEdytuj.UseVisualStyleBackColor = true;
             this.btnEdytuj.Click += new System.EventHandler(this.btnEdytuj_Click);
             // 
+            // btnUsun
+            // 
+            this.btnUsun.Location = new System.Drawing.Point(340, 204);
+            this.btnUsun.Name = "btnUsun";
+            this.btnUsun.Size = new System.Drawing.Size(75, 23);
+            this.btnUsun.TabIndex = 17;
+            this.btnUsun.Text = "Usuń";
+            this.btnUsun.UseVisualStyleBackColor = true;
+            this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 321);
+            this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnEdytuj);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.btnZapisz);
@@ -229,6 +241,7 @@ namespace P04AplikacjaZawodnicy
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.Button btnEdytuj;
+        private System.Windows.Forms.Button btnUsun;
     }
 }
 

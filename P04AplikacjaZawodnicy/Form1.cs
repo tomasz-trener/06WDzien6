@@ -69,5 +69,10 @@ namespace P04AplikacjaZawodnicy
             mz.Edytuj(z);
             Odswiez();
         }
+
+        private void btnUsun_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -76,5 +76,14 @@ namespace P04AplikacjaZawodnicy
           
             pzb.WykonajZapytanieSQL(sql);
         }
+
+        public void Usun(int id)
+        {
+            PolaczenieZBaza pzb = new PolaczenieZBaza(connString);
+            string sql = string.Format("delete zawodnicy where id_zawodnika={0}", id);
+
+            pzb.WykonajZapytanieSQL(sql);
+
+        }
     }
 }
