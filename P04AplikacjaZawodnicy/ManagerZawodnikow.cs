@@ -58,5 +58,21 @@ namespace P04AplikacjaZawodnicy
          
             pzb.WykonajZapytanieSQL(sql);
         }
+
+        public void Edytuj(Zawodnik z)
+        {
+            PolaczenieZBaza pzb = new PolaczenieZBaza(connString);
+
+            string sql = string.Format(
+                "update zawodnicy set " +
+                   " imie = '{0}', " +
+                   " nazwisko = '{1}', " +
+                   " kraj = '{2}', " +
+                   " data_ur = '{3}', " +
+                   " wzrost = {4}, " +
+                   " waga = {5}" +
+                   " where id_zawodnika = {6}",
+                z.Imie,z.Nazwisko,z.Kraj,z.DataUrodzenia,z.Wzrost,z.Waga,z.Id_zawodnika);
+        }
     }
 }
