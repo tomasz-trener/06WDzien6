@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace P04AplikacjaZawodnicy
 {
@@ -12,7 +13,7 @@ namespace P04AplikacjaZawodnicy
 
         public Zawodnik[] Zawodnicy;
 
-        public void Wczytaj()
+        public void Wczytaj(CheckedItemCollection soc)
         {
           
             PolaczenieZBaza pzb = new PolaczenieZBaza(connString);
@@ -23,7 +24,7 @@ namespace P04AplikacjaZawodnicy
 
             for (int i = 0; i < wynik.Length; i++)
             {
-                Zawodnik z = new Zawodnik((string)wynik[i][2], (string)wynik[i][3]);
+                Zawodnik z = new Zawodnik((string)wynik[i][2], (string)wynik[i][3], soc);
                 z.Id_zawodnika = (int)wynik[i][0];
 
 

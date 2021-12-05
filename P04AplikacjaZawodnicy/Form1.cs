@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.CheckedListBox;
+using static System.Windows.Forms.ListBox;
 
 namespace P04AplikacjaZawodnicy
 {
@@ -20,10 +22,12 @@ namespace P04AplikacjaZawodnicy
         private void Odswiez()
         {
             ManagerZawodnikow mz = new ManagerZawodnikow();
-            mz.Wczytaj();
+            
+            CheckedItemCollection soc = chbListKolumny.CheckedItems;
+            mz.Wczytaj(soc);
 
             lbDane.DataSource = mz.Zawodnicy;
-            lbDane.DisplayMember = "CalyRekord";
+            lbDane.DisplayMember = "WybraneKolumny";
         }
 
         private void btnWczytaj_Click(object sender, EventArgs e)

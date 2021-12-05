@@ -46,6 +46,7 @@ namespace P04AplikacjaZawodnicy
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.btnEdytuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
+            this.chbListKolumny = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // lbDane
@@ -194,11 +195,27 @@ namespace P04AplikacjaZawodnicy
             this.btnUsun.UseVisualStyleBackColor = true;
             this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
+            // chbListKolumny
+            // 
+            this.chbListKolumny.FormattingEnabled = true;
+            this.chbListKolumny.Items.AddRange(new object[] {
+            "Imie",
+            "Nazwisko",
+            "Kraj",
+            "DataUr",
+            "Waga",
+            "Wzrost"});
+            this.chbListKolumny.Location = new System.Drawing.Point(340, 236);
+            this.chbListKolumny.Name = "chbListKolumny";
+            this.chbListKolumny.Size = new System.Drawing.Size(237, 79);
+            this.chbListKolumny.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 321);
+            this.ClientSize = new System.Drawing.Size(599, 321);
+            this.Controls.Add(this.chbListKolumny);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnEdytuj);
             this.Controls.Add(this.dtpData);
@@ -242,6 +259,7 @@ namespace P04AplikacjaZawodnicy
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.Button btnEdytuj;
         private System.Windows.Forms.Button btnUsun;
+        private System.Windows.Forms.CheckedListBox chbListKolumny;
     }
 }
 
