@@ -1,0 +1,3 @@
+﻿
+
+Dodaj osbługę pozostałych tabel (trenerzy, zawody, skocznie i miasta)
